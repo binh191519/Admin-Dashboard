@@ -1,15 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+
 :root {
     --blue: #1892d3;
 }
 
-
-
 .container {
-    width: 100%;
-    height: 800px;
+    font-family: 'Roboto', sans-serif;
 
     display: grid;
-    grid-template: 1fr 5fr / 1fr 4fr;
+    grid-template: 1fr 6fr / 1fr 4fr;
     grid-template-areas: "sidebar header" "sidebar main-content";
 }
 
@@ -53,6 +52,8 @@
     background-color: white;
     grid-area: header;
     padding: 15px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 
     display: grid;
     gap: 15px;
@@ -78,12 +79,12 @@
 
 .search input {
     border: solid 1px var(--blue);
-    width: 80%;
+    width: 60%;
     height: 100%;
     border-radius: 20px;
 }
 
-.header-1 .notification img {
+.notification img, .project img {
     width: 24px;
     color: black;
 }
@@ -96,7 +97,7 @@
 }
 
 .header-1 .profile {
-    width: 15%;
+    width: 10%;
     font-size: large;
     font-weight: bold;
 }
@@ -175,13 +176,12 @@
     grid-column: 1 / -1;
 }
 
-.projects .project {
-    background-color: white;
-}
-
 .project {
+    background-color: white;
     position: relative;
     padding: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .project h2 {
@@ -199,14 +199,26 @@
 
 .announcements {
     display: grid;
-    grid-template-columns: 1;
-    grid-template-rows: 50px;
-    grid-auto-rows: 1fr;
+    grid-template-rows: 50px 1fr;
 }
 
-.announcements .announcement {
+.announcements .box, .trending .box {
     background-color: white;
-    padding: 20px;
+    padding: 0 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.announcement, .trend {
+    flex-grow: 1;
+    padding: 20px 0;
+}
+
+.announcement:first-child, .announcement:nth-child(2) {
+    border-bottom: solid rgba(0, 0, 0, 0.15) 1px;
 }
 
 .announcement h2 {
@@ -224,10 +236,8 @@
     grid-auto-rows: 1fr;
 }
 
-.trending .trend {
-    background-color: white;
+.trend {
     font-size: medium;
-    padding: 20px;
 
     display: flex;
     gap: 20px;
